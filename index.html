@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khaing Khant Kyaw — Junior Developer, AI-Accelerated</title>
+  <meta name="description" content="Junior developer building web apps and workflow automations using AI coding assistants and LLM APIs. Based in Dublin. Open to remote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --bg-elev: #12151a;
+      --bg-card: #161a20;
+      --border: #232830;
+      --text: #e6e8eb;
+      --text-dim: #9aa1ab;
+      --text-mute: #6b7280;
+      --accent: #7aa2ff;
+      --accent-warm: #ffb86b;
+      --radius: 14px;
+      --maxw: 960px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+    a:hover { color: #a7bfff; }
+    code, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.92em; }
+
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(11, 13, 16, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; padding-bottom: 16px; }
+    nav .brand { font-weight: 700; letter-spacing: -0.01em; }
+    nav ul { list-style: none; display: flex; gap: 28px; }
+    nav a { color: var(--text-dim); font-size: 0.92rem; font-weight: 500; }
+    nav a:hover { color: var(--text); }
+    @media (max-width: 640px) { nav ul { gap: 18px; } nav a { font-size: 0.86rem; } }
+
+    .hero { padding: 96px 0 72px; }
+    .hero .row { display: flex; gap: 40px; align-items: center; }
+    .hero .avatar {
+      flex-shrink: 0;
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7aa2ff 0%, #ffb86b 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.6rem; font-weight: 700; color: #0b0d10;
+      overflow: hidden;
+      border: 3px solid var(--border);
+    }
+    .hero .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 10px; }
+    .hero .role { color: var(--accent); font-weight: 600; font-size: 1.05rem; margin-bottom: 20px; }
+    .hero .tagline { color: var(--text-dim); font-size: 1.05rem; max-width: 520px; margin-bottom: 24px; }
+    .hero .meta { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.9rem; color: var(--text-mute); }
+    .hero .meta span { display: inline-flex; align-items: center; gap: 6px; }
+    @media (max-width: 640px) {
+      .hero { padding: 64px 0 48px; }
+      .hero .row { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .hero .avatar { width: 96px; height: 96px; font-size: 2rem; }
+      .hero h1 { font-size: 2rem; }
+    }
+
+    section { padding: 56px 0; border-top: 1px solid var(--border); }
+    section h2 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-mute);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 28px;
+    }
+
+    .about p { color: var(--text-dim); font-size: 1.02rem; max-width: 680px; }
+    .about p + p { margin-top: 14px; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .skill-card h3 { font-size: 0.86rem; font-weight: 600; color: var(--accent); margin-bottom: 8px; letter-spacing: 0.02em; }
+    .skill-card p { font-size: 0.9rem; color: var(--text-dim); }
+
+    .projects { display: flex; flex-direction: column; gap: 20px; }
+    .project {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .project:hover { border-color: #33404f; transform: translateY(-2px); }
+    .project .head { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; margin-bottom: 8px; flex-wrap: wrap; }
+    .project h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; }
+    .project .tags { display: flex; gap: 8px; flex-wrap: wrap; font-size: 0.78rem; color: var(--text-mute); }
+    .project .tags span { padding: 3px 9px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 999px; }
+    .project p { color: var(--text-dim); font-size: 0.96rem; margin-bottom: 14px; }
+    .project .links { display: flex; gap: 16px; font-size: 0.9rem; font-weight: 500; }
+    .project .links a { display: inline-flex; align-items: center; gap: 5px; }
+
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+    }
+    .contact-card .label { font-size: 0.75rem; color: var(--text-mute); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .contact-card a, .contact-card span { font-size: 0.98rem; font-weight: 500; color: var(--text); word-break: break-word; }
+
+    footer { padding: 40px 0 60px; border-top: 1px solid var(--border); color: var(--text-mute); font-size: 0.85rem; text-align: center; }
+    footer .mono { color: var(--text-dim); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">KKK</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="row">
+      <div class="avatar" id="avatar"><img src="photo.jpg" alt="Khaing Khant Kyaw" onerror="this.replaceWith(document.createTextNode('KK'))"></div>
+      <div>
+        <h1>Khaing Khant Kyaw</h1>
+        <div class="role">Junior Developer · AI-Accelerated Web &amp; Automation</div>
+        <p class="tagline">MSc Data Analytics graduate building web apps and workflow automations with AI coding assistants (Claude, Gemini) as daily partners. Open to remote work; based in Dublin.</p>
+        <div class="meta">
+          <span>📍 Dublin, Ireland</span>
+          <span>🌏 Remote-friendly</span>
+          <span>🎓 MSc Data Analytics, NCI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>I ship small, real things. Most recently a Python CLI that turns any GitHub repo's commit history into an AI-generated Markdown digest via the Gemini API — built end-to-end in a single session with Claude as a pair-programmer.</p>
+    <p>Certified across AWS (Cloud Practitioner), Azure (AZ-900), and Aviatrix multicloud networking; currently studying for the AWS Solutions Architect Associate. Comfortable with HTML/CSS, JavaScript, Python, REST APIs, and Markdown-first documentation. Eager to learn Google Apps Script.</p>
+    <p>Languages: English (fluent), Burmese (native), Japanese (JLPT N5 basic).</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><h3>AI &amp; LLM Tools</h3><p>Claude, Gemini API, Google AI Studio, LLM-assisted coding, prompt engineering</p></div>
+      <div class="skill-card"><h3>Web Development</h3><p>HTML5, CSS3, JavaScript, jQuery, Bootstrap, PHP, AJAX</p></div>
+      <div class="skill-card"><h3>Programming</h3><p>Python, R, SQL, Bash</p></div>
+      <div class="skill-card"><h3>APIs &amp; Automation</h3><p>REST APIs, GitHub API, Gemini API, workflow automation, Git &amp; GitHub</p></div>
+      <div class="skill-card"><h3>Data &amp; Backend</h3><p>MySQL, MongoDB, Pandas, NumPy, Scikit-learn, Apache Airflow, Flask</p></div>
+      <div class="skill-card"><h3>Cloud &amp; DevOps</h3><p>AWS (EC2, S3, VPC, IAM), Azure fundamentals, Docker, Linux basics</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Selected Projects</h2>
+    <div class="projects">
+      <article class="project">
+        <div class="head"><h3>ai-commit-digest</h3><div class="tags"><span>Python</span><span>Gemini API</span><span>GitHub API</span></div></div>
+        <p>Python CLI that fetches recent commits from any public GitHub repo and generates a themed Markdown digest via the Gemini API — grouped into Features, Fixes, Refactors, and Docs. Built end-to-end in a single session using Claude as an AI pair-programmer. Dotenv-based secrets, rate-limit aware.</p>
+        <div class="links"><a href="https://github.com/Khaing-Khant-Kyaw/ai-commit-digest" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="project">
+        <div class="head"><h3>Night Club Web Application</h3><div class="tags"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>jQuery</span><span>AJAX</span></div></div>
+        <p>Full-stack event and artist management web app with role-based dashboards (admin, artist). AJAX-driven CRUD APIs, session-based authentication, Bootstrap responsive UI. Refactored hardcoded credentials into a shared environment-variable config.</p>
+        <div class="links"><a href="https://github.com/Khaing-Khant-Kyaw/Night-Club-Web-Developnment" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="project">
+        <div class="head"><h3>Weather ETL on AWS EC2</h3><div class="tags"><span>Python</span><span>OpenWeatherMap API</span><span>AWS S3</span><span>Pandas</span></div></div>
+        <p>Python ETL pipeline that pulls weather data from the OpenWeatherMap REST API, transforms it with Pandas, and uploads clean CSVs to Amazon S3 from an EC2 instance. Uses EC2 IAM role for AWS authentication — no hardcoded credentials.</p>
+        <div class="links"><a href="https://github.com/Khaing-Khant-Kyaw/simple_etl_using_EC2" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+      <article class="project">
+        <div class="head"><h3>Heart Disease Prediction</h3><div class="tags"><span>Python</span><span>Scikit-learn</span><span>Keras</span><span>Flask</span></div></div>
+        <p>Trained and compared Random Forest, Logistic Regression, KNN, Decision Tree, and a Keras Neural Network on clinical features; deployed the best-performing model behind a Flask REST API.</p>
+        <div class="links"><a href="https://github.com/Khaing-Khant-Kyaw/Heart_Disease" target="_blank" rel="noopener">GitHub →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-card"><div class="label">Email</div><a href="mailto:khaingkhantkyaw031130@gmail.com">khaingkhantkyaw031130@gmail.com</a></div>
+      <div class="contact-card"><div class="label">GitHub</div><a href="https://github.com/Khaing-Khant-Kyaw" target="_blank" rel="noopener">Khaing-Khant-Kyaw</a></div>
+      <div class="contact-card"><div class="label">LinkedIn</div><a href="https://www.linkedin.com/in/khaing-khant-kyaw-758941294/" target="_blank" rel="noopener">khaing-khant-kyaw</a></div>
+      <div class="contact-card"><div class="label">Location</div><span>Dublin, Ireland</span></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Built with <span class="mono">HTML · CSS</span> and shipped via GitHub Pages.</div></footer>
+
+</body>
+</html>
